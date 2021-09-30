@@ -21,7 +21,7 @@ class CustomerMapperTest {
 
         //given
         Customer customer = new Customer();
-        customer.setName(NAME);
+        customer.setFirstName(NAME);
         customer.setId(ID);
 
         //when
@@ -29,7 +29,7 @@ class CustomerMapperTest {
 
         //then
         assertEquals(Long.valueOf(ID), customerDTO.getId());
-        assertEquals(NAME, customerDTO.getName());
+        assertEquals(NAME, customerDTO.getFirstName());
     }
 
 }

@@ -19,6 +19,11 @@ public class Bootstrap implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+        initCategories();
+        initCustomers();
+    }
+
+    private void initCategories() {
         Category fruits = new Category();
         fruits.setName("Fruits");
 
@@ -32,19 +37,8 @@ public class Bootstrap implements CommandLineRunner {
         exotic.setName("Exotic");
 
         Category nuts = new Category();
+
         nuts.setName("Nuts");
-
-
-        Customer c1 = new Customer();
-        c1.setName("Jimmy");
-
-        Customer c2 = new Customer();
-        c2.setName("Michael");
-
-        Customer c3 = new Customer();
-        c3.setName("Jasmine");
-
-
 
         categoryRepository.save(fruits);
         categoryRepository.save(dried);
@@ -52,12 +46,27 @@ public class Bootstrap implements CommandLineRunner {
         categoryRepository.save(exotic);
         categoryRepository.save(nuts);
 
+        System.out.println("Categories Loaded = " + categoryRepository.count() );
+
+    }
+
+    private void initCustomers() {
+        Customer c1 = new Customer();
+        c1.setFirstName("Jimmy");
+        c1.setLastName("Bob");
+
+        Customer c2 = new Customer();
+        c2.setFirstName("Michael");
+        c2.setLastName("Jackson");
+
+        Customer c3 = new Customer();
+        c3.setFirstName("Jasmine");
+        c3.setLastName("Blue");
+
         customerRepository.save(c1);
         customerRepository.save(c2);
         customerRepository.save(c3);
 
-
-        System.out.println("Data Loaded = " + categoryRepository.count() );
-
+        System.out.println("Customers Loaded = " + customerRepository.count() );
     }
 }

@@ -8,5 +8,7 @@ public interface CustomerService {
 
     List<CustomerDTO> getAllCustomers();
 
-    CustomerDTO getCustomerByName(String name);
+    CustomerDTO getCustomerByFirstName(String firstName);
+
+    CustomerDTO getCustomerById(Long id);
 }
