@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.context.event.annotation.BeforeTestMethod;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,14 +26,14 @@ class CategoryServiceTest {
 
 
     @BeforeEach
-    public void setUp() throws Exception {
+    public void setUp() {
         MockitoAnnotations.openMocks(this);
 
         categoryService = new CategoryServiceImpl(CategoryMapper.INSTANCE, categoryRepository);
     }
 
     @Test
-    public void getAllCategories() throws Exception {
+    public void getAllCategories() {
 
         //given
         List<Category> categories = Arrays.asList(new Category(), new Category(), new Category());
@@ -50,7 +49,7 @@ class CategoryServiceTest {
     }
 
     @Test
-    public void getCategoryByName() throws Exception {
+    public void getCategoryByName() {
 
         //given
         Category category = new Category();

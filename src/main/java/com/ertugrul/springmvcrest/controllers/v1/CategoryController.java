@@ -2,7 +2,6 @@ package com.ertugrul.springmvcrest.controllers.v1;
 
 import com.ertugrul.springmvcrest.api.v1.model.CategoryDTO;
 import com.ertugrul.springmvcrest.api.v1.model.CategoryListDTO;
-import com.ertugrul.springmvcrest.domain.Category;
 import com.ertugrul.springmvcrest.service.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
