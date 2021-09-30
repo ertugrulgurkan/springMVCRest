@@ -3,10 +3,12 @@ package com.ertugrul.springmvcrest.service;
 import com.ertugrul.springmvcrest.api.v1.mapper.CategoryMapper;
 import com.ertugrul.springmvcrest.api.v1.model.CategoryDTO;
 import com.ertugrul.springmvcrest.repositories.CategoryRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryMapper categoryMapper;
