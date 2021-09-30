@@ -2,9 +2,9 @@ package com.ertugrul.springmvcrest.service;
 
 import com.ertugrul.springmvcrest.api.v1.mapper.CustomerMapper;
 import com.ertugrul.springmvcrest.api.v1.model.CustomerDTO;
+import com.ertugrul.springmvcrest.domain.Customer;
 import com.ertugrul.springmvcrest.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,5 +45,14 @@ public class CustomerServiceImpl implements CustomerService {
                     customerDTO.setCustomerUrl("/api/v1/customers/" + customer.getId());
                     return customerDTO;
                 }).orElseThrow(RuntimeException::new);
+    }
+
+    @Override
+    public CustomerDTO createNewCustomer(CustomerDTO customerDTO) {
+        Customer customer = customerMapper.customerDTOToCustomer(customerDTO);
+        Customer savedCustomer = customerRepository.save(customer);
+        CustomerDTO returnCustomerDto = customerMapper.customerToCustomerDTO(savedCustomer);
+        returnCustomerDto.setCustomerUrl("/api/v1/customers/" + returnCustomerDto.getId());
+        return returnCustomerDto;
     }
 }
