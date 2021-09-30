@@ -1,11 +1,8 @@
 package com.ertugrul.springmvcrest.controllers.v1;
 
 
-import com.ertugrul.springmvcrest.api.v1.model.CategoryDTO;
-import com.ertugrul.springmvcrest.api.v1.model.CategoryListDTO;
 import com.ertugrul.springmvcrest.api.v1.model.CustomerDTO;
 import com.ertugrul.springmvcrest.api.v1.model.CustomerListDTO;
-import com.ertugrul.springmvcrest.domain.Customer;
 import com.ertugrul.springmvcrest.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/api/v1/customers/")
+@RequestMapping("/api/v1/customers")
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -28,12 +25,12 @@ public class CustomerController {
                 new CustomerListDTO(customerService.getAllCustomers()), HttpStatus.OK);
     }
 
-    @GetMapping("customer/{firstName}")
+    @GetMapping({"/customer/{firstName}"})
     public ResponseEntity<CustomerDTO> getCustomerByFirstName(@PathVariable String firstName){
         return new ResponseEntity<>(customerService.getCustomerByFirstName(firstName), HttpStatus.OK);
     }
 
-    @GetMapping({"{id}"})
+    @GetMapping({"/{id}"})
     public ResponseEntity<CustomerDTO> getCustomerById(@PathVariable Long id){
         return new ResponseEntity<>(customerService.getCustomerById(id), HttpStatus.OK);
     }
