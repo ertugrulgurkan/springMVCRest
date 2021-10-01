@@ -1,8 +1,6 @@
 package com.ertugrul.springmvcrest.api.v1.mapper;
 
-import com.ertugrul.springmvcrest.api.v1.model.CategoryDTO;
 import com.ertugrul.springmvcrest.api.v1.model.CustomerDTO;
-import com.ertugrul.springmvcrest.domain.Category;
 import com.ertugrul.springmvcrest.domain.Customer;
 import org.junit.jupiter.api.Test;
 

@@ -46,7 +46,7 @@ public class Bootstrap implements CommandLineRunner {
         categoryRepository.save(exotic);
         categoryRepository.save(nuts);
 
-        System.out.println("Categories Loaded = " + categoryRepository.count() );
+        System.out.println("Categories Loaded = " + categoryRepository.count());
 
     }
 
@@ -67,6 +67,6 @@ public class Bootstrap implements CommandLineRunner {
         customerRepository.save(c2);
         customerRepository.save(c3);
 
-        System.out.println("Customers Loaded = " + customerRepository.count() );
+        System.out.println("Customers Loaded = " + customerRepository.count());
     }
 }

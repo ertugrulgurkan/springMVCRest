@@ -7,6 +7,7 @@ import com.ertugrul.springmvcrest.domain.Customer;
 import com.ertugrul.springmvcrest.exceptions.ResourceNotFoundException;
 import com.ertugrul.springmvcrest.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -55,7 +56,7 @@ public class CustomerServiceImpl implements CustomerService {
         return saveAndReturnDTO(customer);
     }
 
-    private CustomerDTO saveAndReturnDTO(Customer customer){
+    private CustomerDTO saveAndReturnDTO(Customer customer) {
         Customer savedCustomer = customerRepository.save(customer);
         CustomerDTO returnCustomerDto = customerMapper.customerToCustomerDTO(savedCustomer);
         returnCustomerDto.setCustomerUrl(getCustomerUrl(returnCustomerDto.getId()));
@@ -72,10 +73,10 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerDTO patchCustomer(Long id, CustomerDTO customerDTO) {
         return customerRepository.findById(id).map(customer -> {
-            if(customerDTO.getFirstName() != null){
+            if (customerDTO.getFirstName() != null) {
                 customer.setFirstName(customerDTO.getFirstName());
             }
-            if(customerDTO.getLastName() != null){
+            if (customerDTO.getLastName() != null) {
                 customer.setLastName(customerDTO.getLastName());
             }
             CustomerDTO returnDto = customerMapper.customerToCustomerDTO(customerRepository.save(customer));

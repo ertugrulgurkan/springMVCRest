@@ -26,38 +26,38 @@ public class CustomerController {
     }
 
     @GetMapping({"/customer/{firstName}"})
-    public CustomerDTO getCustomerByFirstName(@PathVariable String firstName){
+    public CustomerDTO getCustomerByFirstName(@PathVariable String firstName) {
         return customerService.getCustomerByFirstName(firstName);
     }
 
     @GetMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
-    public CustomerDTO getCustomerById(@PathVariable Long id){
+    public CustomerDTO getCustomerById(@PathVariable Long id) {
         return customerService.getCustomerById(id);
     }
 
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CustomerDTO createNewCustomer(@RequestBody CustomerDTO customerDTO){
+    public CustomerDTO createNewCustomer(@RequestBody CustomerDTO customerDTO) {
         return customerService.createNewCustomer(customerDTO);
     }
 
     @PutMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
-    public CustomerDTO updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO){
+    public CustomerDTO updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
         return customerService.saveCustomerByDTO(id, customerDTO);
     }
 
     @PatchMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
-    public CustomerDTO patchCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO){
+    public CustomerDTO patchCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
         return customerService.patchCustomer(id, customerDTO);
     }
 
     @DeleteMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
-    public void deleteCustomer(@PathVariable Long id){
+    public void deleteCustomer(@PathVariable Long id) {
         customerService.deleteCustomerById(id);
     }
 

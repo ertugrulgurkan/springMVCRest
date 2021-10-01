@@ -2,6 +2,7 @@ package com.ertugrul.springmvcrest.api.v1.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
 import java.util.List;
 
 @Data
