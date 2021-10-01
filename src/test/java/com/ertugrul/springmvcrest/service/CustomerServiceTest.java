@@ -12,10 +12,8 @@ import org.mockito.MockitoAnnotations;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 class CustomerServiceTest {
@@ -36,7 +34,7 @@ class CustomerServiceTest {
 
 
     @Test
-    public void getAllCustomers(){
+    public void getAllCustomers() {
 
         //given
         List<Customer> customers = Arrays.asList(new Customer(), new Customer(), new Customer());
@@ -52,7 +50,7 @@ class CustomerServiceTest {
 
 
     @Test
-    public void getCustomerByFirstName(){
+    public void getCustomerByFirstName() {
         //given
         Customer customer = new Customer();
         customer.setFirstName(FIRSTNAME);

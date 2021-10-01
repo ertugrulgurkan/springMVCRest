@@ -4,7 +4,7 @@ import com.ertugrul.springmvcrest.api.v1.model.CategoryDTO;
 import com.ertugrul.springmvcrest.domain.Category;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CategoryMapperTest {
     public static final String NAME = "Joe";

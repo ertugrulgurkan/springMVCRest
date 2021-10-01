@@ -16,7 +16,8 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.not;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @DataJpaTest
 class CustomerServiceImplTest {
@@ -40,6 +41,7 @@ class CustomerServiceImplTest {
 
         customerService = new CustomerServiceImpl(customerRepository, CustomerMapper.INSTANCE);
     }
+
     @Test
     public void patchCustomerUpdateFirstName() {
         String updatedName = "UpdatedName";
@@ -89,7 +91,7 @@ class CustomerServiceImplTest {
         assertThat(originalLastName, not(equalTo(updatedCustomer.getLastName())));
     }
 
-    private Long getCustomerIdValue(){
+    private Long getCustomerIdValue() {
         List<Customer> customers = customerRepository.findAll();
 
         System.out.println("Customers Found: " + customers.size());
